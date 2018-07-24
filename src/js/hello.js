@@ -1,5 +1,6 @@
 function greet() {
-    console.log('Have a great day!');
+    const message='Have a great day!'
+    console.log(message);
 };
 
 export default greet;
