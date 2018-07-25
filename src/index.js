@@ -1,5 +1,2 @@
-import greet from './js/hello.js';
-import './style.css'
-
-console.log("I'm the entry point");
-greet();
+import './style.scss';
+import app from './app';
