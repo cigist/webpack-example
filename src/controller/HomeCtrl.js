@@ -1,21 +1,18 @@
-import profile from './ProfileCtrl'
 import api from '../api/api'
 
-export default class  HelloWorldController {
-    constructor($scope) {
-      this.scope = $scope;
-      this.data={
-        message:[]
-      }
-    };
-
-    getMessage(){
-      let param={
-        xname:'dodol'
-      }
-      let vapi = new api('walletw.exmasterbank?',param);
-      vapi.doPost(function (result){
-        console.log(result);
-      });
+let data = {};
+export default class HomeController {
+  constructor($scope) {
+    this.something = null;
+  };
+  getMessage() {
+    let param = {
+      xname: 'dodol'
     }
+    api.doPost('walletw.exmasterbank?', param, function (response) {
+      if (response.STATUS === 'OK') {
+        data.response = response;
+      }
+    })
+  }
 }
