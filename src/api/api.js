@@ -5,7 +5,25 @@ const server = 'https://www.exact.co.id/SE/'
 export default class Api {
     constructor() {
     }
-    static async doPost(service, data) {
+
+    static async ngPost($http, service, args, result) {
+        try {
+            $http({
+                method: "POST",
+                url: server + service,
+                params: args,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            }).then(function mySucces(response) {
+                result(response.data);
+            }, function myError(response) {
+            });
+        } catch (error) {
+            return null;
+        }
+    };
+    static async doPost(service, data, result) {
         try {
             var httpServer = server + service;
             setTimeout(function () {

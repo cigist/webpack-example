@@ -1,18 +1,23 @@
 import api from '../api/api'
 
-let data = {};
+let scope;
 export default class HomeController {
-  constructor($scope) {
-    this.something = null;
+  constructor($scope,$http) {
+    'ngInject';
+    scope=$scope;
+    scope.message=$scope.name;
+    this.http = $http;
   };
   getMessage() {
     let param = {
       xname: 'dodol'
     }
-    api.doPost('walletw.exmasterbank?', param, function (response) {
-      if (response.STATUS === 'OK') {
-        data.response = response;
+    api.ngPost(this.http,'walletw.exmasterbank?', param,(response) => {
+      if(response.STATUS ==='OK'){
+        scope.listBank=response.LIST_BANK;
       }
+    }).catch((err) => {
+      console.log(err)
     })
   }
 }
