@@ -1,14 +1,14 @@
 <div ng-app="app" ng-controller="HomeCtrl as ctrl">
     <input type="text" ng-model="name">
     <button ng-click="ctrl.getMessage()">Message</button>
-    <table class="table"  data-ng-init ="ctrl.getMessage()">
+    <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>NAMA</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody ng-init="ctrl.getMessage()">
             <tr ng-repeat="bank in listBank">
                 <td>{{bank.ID_BANK}}</td>
                 <td>{{bank.NAMA_BANK}}</td>

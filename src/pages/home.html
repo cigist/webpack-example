@@ -1,6 +1,12 @@
 <div ng-app="app" ng-controller="HomeCtrl as ctrl">
-    <input type="text" ng-model="name">
-    <button ng-click="ctrl.getMessage()">Message</button>
+    <div class="row">
+        <div class="col-sm-10 no-padding">
+            <input type="text" ng-model="name">
+        </div>
+        <div class="col-sm-2 no-padding">
+            <button class="btn-block" ng-click="ctrl.getMessage()">Message</button>
+        </div>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -9,7 +15,7 @@
             </tr>
         </thead>
         <tbody ng-init="ctrl.getMessage()">
-            <tr ng-repeat="bank in listBank">
+            <tr ng-repeat="bank in listBank" ng-click="ctrl.getBankId(bank.ID_BANK)">
                 <td>{{bank.ID_BANK}}</td>
                 <td>{{bank.NAMA_BANK}}</td>
             </tr>

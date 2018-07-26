@@ -20,4 +20,7 @@ export default class HomeController {
       console.log(err)
     })
   }
+  getBankId(id){
+    alert(id);
+  }
 }
